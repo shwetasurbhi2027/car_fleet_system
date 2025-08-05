@@ -1,14 +1,18 @@
-Router()
+from fastapi import APIRouter, HTTPException
+from services.alert_service import (
+    get_all_alerts_service,
+    get_alert_service
+)
+
+router = APIRouter()
 
 @router.get("/")
 def get_all_alerts():
-    return list(alerts.values())
+    return get_all_alerts_service()
 
-@router.get("/{alert_idfrom fastapi import APIRouter, HTTPException
-from storage.database import alerts
-
-router = API}")
+@router.get("/{alert_id}")
 def get_alert(alert_id: str):
-    if alert_id in alerts:
-        return alerts[alert_id]
-    raise HTTPException(status_code=404, detail="Alert not found")
+    alert = get_alert_service(alert_id)
+    if not alert:
+        raise HTTPException(status_code=404, detail="Alert not found")
+    return alert
