@@ -12,10 +12,10 @@ alerts = {}
 
 
 dummy_vehicle = Vehicle(
-    vin="ABC123456789",
-    manufacturer="Tesla",
-    model="Model 3",
-    fleet_id="Fleet-A",
+    vin="ABC123",
+    manufacturer="BMW",
+    model="Model 1",
+    fleet_id="Fleet-X",
     owner="Shweta",
     status="Active"
 )
@@ -23,13 +23,13 @@ vehicles[dummy_vehicle.vin] = dummy_vehicle
 
 
 dummy_telemetry = Telemetry(
-    vin="ABC123456789",
-    latitude=28.6139,
-    longitude=77.2090,
-    speed=130.0,  # Over-speeding
+    vin="ABC123",
+    latitude=25.00,
+    longitude=75.00,
+    speed=180.0,  # Over-speeding
     engine_status="On",
-    fuel_level=10.0,  # Low fuel
-    odometer=15000.0,
+    fuel_level=1.0,  # Low fuel
+    odometer=1000000.0,
     diagnostic_codes=["P0420"],
     timestamp=datetime.utcnow()
 )
@@ -39,7 +39,7 @@ telemetry_history[dummy_telemetry.vin] = [dummy_telemetry]
 
 dummy_alert = Alert(
     alert_id=str(uuid.uuid4()),
-    vin="ABC123456789",
+    vin="ABC123",
     type="Speed Violation",
     severity="High",
     timestamp=datetime.utcnow()
